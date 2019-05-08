@@ -1,24 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.tpl" %}
+{% block title %}....::Consultas::....{% endblock %}
 
-<head>
+{% block content %}
+		{% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            <ul class="flashes">
+            {% for category, message in messages %}
+              <li class="alert alert-{{ category }}"  role="alert" >{{ message }}</li>
+            {% endfor %}
+            </ul>
+          {% endif %}
+        {% endwith %}
 
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
 
-  <title>Hospital</title>
-
-  <!-- Bootstrap core CSS -->
-  <link href="static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-  <!-- Custom styles for this template -->
-  <link href="static/css/scrolling-nav.css" rel="stylesheet">
-
-</head>
-
-<body id="page-top">
 
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
@@ -79,18 +73,5 @@
       <p class="m-0 text-center text-white">Copyright &copy; Meu Website 2019</p>
     </div>
     <!-- /.container -->
-  </footer>
-
-  <!-- Bootstrap core JavaScript -->
-  <script src="static/vendor/jquery/jquery.min.js"></script>
-  <script src="static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-  <!-- Plugin JavaScript -->
-  <script src="static/vendor/jquery-easing/jquery.easing.min.js"></script>
-
-  <!-- Custom JavaScript for this theme -->
-  <script src="static/js/scrolling-nav.js"></script>
-
-</body>
-
-</html>
+	
+  </footer>{% endblock %}
